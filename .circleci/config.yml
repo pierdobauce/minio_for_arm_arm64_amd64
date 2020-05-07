@@ -92,7 +92,9 @@ jobs:
       - run:
          name: create minio images and push them
          command: |
-            docker buildx build --platform linux/amd64,linux/arm,linux/arm64 -f Dockerfile --push -t sarmand.ddns.net:5000/minio:latest .
+            docker buildx build --platform linux/amd64 -f Dockerfile --push -t sarmand.ddns.net:5000/minio:latest .
+            docker buildx build --platform linux/arm -f Dockerfile --push -t sarmand.ddns.net:5000/minio:latest .
+            docker buildx build --platform linux/arm64 -f Dockerfile --push -t sarmand.ddns.net:5000/minio:latest .
 
 
             
